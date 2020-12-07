@@ -13,6 +13,7 @@ class LoginForm extends Component{
             },
             loading:false,
             errors:{},
+            global: false
         }
         this.onChange=this.onChange.bind(this);
         this.onSubmit=this.onSubmit.bind(this);
@@ -34,13 +35,17 @@ class LoginForm extends Component{
             errors:errors
         })
         if(Object.keys(errors).length === 0){
-            this.setState({loading:true});
+            // this.setState({loading:true});
             this.props.submit(this.state.data)
-                .catch(err => this.setState({
-                    errors: err.response.data.errors,
-                    errors: {global: false},
-                    loading:false
-                }));
+                .catch(err => {
+                        console.log("Error : ", err.response)
+                        this.setState({
+                        errors: err.response.data.errors,
+                        global: true,
+                        loading:false
+                    })
+                }
+                );
         }
     }
 
@@ -48,10 +53,10 @@ class LoginForm extends Component{
     render(){
         return(
             <Form onSubmit={this.onSubmit} loading={this.state.loading} className = "Login-Form">
-                {this.state.errors.global && (
+                {this.state.global && (
                     <Message negative>
                         <Message.Header>Something went wrong</Message.Header>
-                        <p>{this.state.errors.global}</p>
+                        <p>{this.state.errors.message}</p>
                     </Message>
                     )}
                 <Form.Field error={!!this.state.errors.username}>

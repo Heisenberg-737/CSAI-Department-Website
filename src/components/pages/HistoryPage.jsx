@@ -74,7 +74,7 @@ class HistoryPage extends Component {
                 <List.Header as="a">{t.title}</List.Header>
                 <List.Description>
                   <span>submitted by {t.author} </span>
-                  <Moment fromNow>{t.created}</Moment>
+                  <Moment fromNow>{t.time_created}</Moment>
                 </List.Description>
               </List.Content>
             </List.Item>);

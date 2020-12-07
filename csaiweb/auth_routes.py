@@ -12,15 +12,12 @@ def login():
     content = request.get_json()
     username = content["credentials"]["username"]
     password = content["credentials"]["password"]
-    # usern = "pranay_kothari"
-    # password = "1234"
-    # print(content["credentials"])
 
     user = Login.query.filter(Login.username == username,
                               Login.password == password).first()
 
     if user is None:
-        return jsonify({"errors": {"global": "Invalid credentials"}}), 501
+         return jsonify({"errors": {"message": "Invalid credentials"}}), 400
 
     token = encode_auth_token(username)
 
@@ -60,9 +57,6 @@ def signup():
         content = request.get_json()
         username = content["user"]["username"]
         password = content["user"]["password"]
-        # username = "manjot_singh"
-        # password = "1234"
-        # print(content)
 
         user = Login(username=username, password=password)
         db.session.add(user)
@@ -70,9 +64,6 @@ def signup():
 
         token = encode_auth_token(username)
 
-       # dict = {
-       #     'token': token.decode()
-       # }
         dict = {
             "user": {
                 'token': decode_auth_token(token),
