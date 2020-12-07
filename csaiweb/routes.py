@@ -113,8 +113,6 @@ def forum():
         }
         List.append(Dict)
 
-    # print(List)
-
     return json.dumps(List)
 
 # Thread Backend Routes
@@ -129,10 +127,8 @@ def newthread():
         title = content["details"]["title"]
         body = content["details"]["body"]
         author = content["details"]["author"]
-        # title = "Hello"
-        # body = "Hello Guys!!"
         time = datetime.datetime.now()
-        # print(content)
+
         upvoted = 0
         downvoted = 0
         karma = 0
@@ -155,12 +151,6 @@ def editthread():
         content = request.get_json()
         body = content["details"]["body"]
         s_no = content["details"]["id"]
-        # body = "Yo"
-        # s_no = 2
-        # upvoted = content["upvoted"]
-        # downvoted = content["downvoted"]
-        # karma = content["karma"]
-        # print(content)
 
         post = Thread.query.filter(Thread.s_no == s_no).first()
         post.body = body
@@ -195,6 +185,13 @@ def deletethread(s_no):
         post = Thread.query.get(s_no)
         db.session.delete(post)
         db.session.commit()
+
+        comments = Comments.query.filter(Comments.thread_id == s_no).all()
+
+        for comment in comments:
+            db.session.delete(comment)
+            db.session.commit()
+
         return 'Thread Deleted!', 200
     except:
         return 'Thread Not Deleted!', 501
@@ -220,7 +217,7 @@ def thread(s_no):
         'time_created': row.time_created
     }
     List.append(Dict)
-    # print(List)
+
     return json.dumps(List)
 
 
@@ -235,10 +232,7 @@ def newcomment():
         thread_id = content["details"]["thread_id"]
         author = content["details"]["author"]
         time = datetime.datetime.now()
-        # author = "pranay_kothari"
-        # body = "Amazing!"
-        # thread_id = 2
-        # time = "Few Seconds Ago"
+
         upvoted = 0
         downvoted = 0
         karma = 0
@@ -262,17 +256,6 @@ def editcomment():
         body = content["details"]["body"]
         sno = content["details"]["id"]
         author = content["details"]["author"]
-        # body = "Hello Kids"
-        # sno = 72
-        # author = "pranay_kothari"
-        # print(content)
-
-        # upvoted = content["upvoted"]
-        # downvoted = content["downvoted"]
-        # karma = content["karma"]
-        # upvoted = 0
-        # downvoted = 0
-        # karma = 0
 
         post = Comments.query.filter(Comments.id == sno).first()
         post.body = body
@@ -286,15 +269,15 @@ def editcomment():
 
         row = Comments.query.filter(Comments.id == sno).all()
         Dict = {
-                'id': row.id,
-                'body': row.body,
-                'author': row.author,
-                'karma': row.karma,
-                'thread_id': row.thread_id,
-                'upvoted': row.upvoted,
-                'downvoted': row.downvoted,
-                'time_created': row.time_created
-                }
+            'id': row.id,
+            'body': row.body,
+            'author': row.author,
+            'karma': row.karma,
+            'thread_id': row.thread_id,
+            'upvoted': row.upvoted,
+            'downvoted': row.downvoted,
+            'time_created': row.time_created
+        }
         List.append(Dict)
 
         return json.dumps(List)
