@@ -58,11 +58,9 @@ class TopMenu extends Component {
                             <Item text='Society'/>
                         </NavLink>
 
-
-
                         </div>
                         <div className= 'right'>
-                        <NavLink to='/forum'>
+                        <NavLink to='/forum' target='_blank'>
                             <Item text='Forum'/>
                         </NavLink>
                         <a href={'https://www.imsnsit.org'} target='_blank'>

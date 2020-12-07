@@ -14,8 +14,17 @@ class NewThreadPage extends Component{
     }
     submit = (data) =>{
         return this.props.createThread(data)
-            .then(() => this.props.history.push("/"));
+            .then(() => {
+                window.location.href="/forum";
+                // this.props.history.push("/forum")
+        });
     }
+
+    // .then(() => {
+    //     window.location.href="/forum";
+    //     // this.props.history.push('/forum');
+    //     // return(this.props.toggleEdit());
+    //   })
     render(){
         return(
             <div>

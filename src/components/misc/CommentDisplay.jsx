@@ -104,7 +104,7 @@ class CommentDisplay extends Component {
     });
   };
   submit = (data) => {
-    // console.log("yyyyyyyy : ",this.state.comment)
+    //console.log("yyyyyyyy : ",this.state.comment)
     data.thread = this.state.comment.thread_id;
     data.author = this.state.comment.author;
     data.id = this.state.comment.id;
@@ -150,7 +150,7 @@ class CommentDisplay extends Component {
             {this.state.comment.author}
           </Comment.Author>
           <Comment.Metadata>
-            <Moment fromNow>{this.state.comment.created}</Moment>
+            <Moment fromNow>{this.state.comment.time_created}</Moment>
           </Comment.Metadata>
           <Comment.Text>{this.state.comment.body}</Comment.Text>
           <Comment.Actions>

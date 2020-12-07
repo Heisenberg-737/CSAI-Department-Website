@@ -36,9 +36,10 @@ class CommentForm extends Component {
     console.log("DATA", this.state.data);
     if (Object.keys(errors).length === 0) {
       this.setState({ loading: true });
-      this.props
-        .submit(this.state.data)
-        .then(() => this.props.toggleComment())
+      this.props.submit(this.state.data)
+        .then(() => {
+          return this.props.toggleComment();
+        })
         .catch((err) =>
           this.setState({
             errors: err,

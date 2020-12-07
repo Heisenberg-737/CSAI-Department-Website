@@ -9,7 +9,7 @@ class Faculty extends React.Component{
     return (
       <div className="faculty">
           <Header />
-          <TopMenu/>
+          <TopMenu />
           <Main />
       </div>
     )

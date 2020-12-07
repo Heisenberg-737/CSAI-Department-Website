@@ -7,7 +7,7 @@ import './society.css';
 class Society extends React.Component{
   render(){
     return (
-      <div className="App">
+      <div className="society-page">
           <Header/>
           <TopMenu/>
           <SocietyMain />

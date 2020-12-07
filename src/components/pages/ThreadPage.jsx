@@ -83,13 +83,21 @@ class ThreadPage extends Component {
     console.log("thread id: ", data.thread_id);
     axios.get("/backend/comments/" + this.props.match.params.id).then((res) => {
       console.log("OnSubmit Res : ", res);
+      // let commentArray = res.data;
+      // let flag = false;
+      // for(let i = 0; i < commentArray.length(); i++)
+      // {
+      //   if(commentArray[i].id === )
+      // }
+      // commentArray.push(data)
+      // console.log("This is the commentArray : ", commentArray);
       this.setState({
         comments: res.data,
         loading: false,
         commentBox: false,
       });
     });
-    return this.props.createComment(data);
+    return this.props.createComment(data)
     // .then(() => {
   };
   //   toggleEdit = () => {
@@ -116,6 +124,7 @@ class ThreadPage extends Component {
 
   render() {
     console.log("this.state.comments : ", this.state.comments);
+    console.log("Render Function is run ")
     let temp = this.state.comments.slice();
     if (this.state.sortby === "Points") {
       temp.sort(compareKarma);

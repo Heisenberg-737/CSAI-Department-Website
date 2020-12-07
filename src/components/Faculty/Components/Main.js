@@ -21,10 +21,12 @@ class Main extends React.Component{
                 </div>
                     
                 
-                <div className='Faculty-Context' >
+                <div className='Faculty-Context'>
+
                     <div className="faculty-list" >
                         {facultyData}
                     </div>
+                    
                 </div>
             </main>
         )

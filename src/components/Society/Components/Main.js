@@ -4,6 +4,12 @@ import NonTechnical from './2.jpg'
 import Misc from './3.jpg'
 
 class SocietyMain extends React.Component{
+    constructor()
+    {
+        super();
+        this.state = {};
+    }
+    
     render()
     {
         return (

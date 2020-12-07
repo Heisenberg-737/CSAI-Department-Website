@@ -7,7 +7,7 @@ class Header extends React.Component {
 		return (
 			<header>
 				<div className="Header-Site-Title">
-					<img className = "Header-logo" src={logo} alt = ""/>
+					<img className = "Header-logo" src={logo} alt = "logo"/>
 					
 					<div className="Department-Name">
 						<h1 >

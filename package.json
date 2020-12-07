@@ -16,6 +16,7 @@
     "react-scripts": "1.1.4",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
+    "requests": "^0.3.0",
     "semantic-ui-css": "^2.3.1",
     "semantic-ui-react": "^0.79.1"
   },
@@ -24,7 +25,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "start-flask": "./venv/Scripts/activate && python run.py"
+    "start-flask": "./venv/Scripts/activate && python app.py"
   },
   "devDependencies": {
     "redux-devtools-extension": "^2.13.2"

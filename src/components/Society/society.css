@@ -126,13 +126,6 @@
 }
 
 @media only screen and (min-width: 1200px) {
-  Society-main {
-    display: flex;
-    justify-content: flex-start;
-    height: 175vh;
-    top: 5;
-    margin-top: 12.8vh;
-  }
 
   .Society-Heading {
     display: flex;

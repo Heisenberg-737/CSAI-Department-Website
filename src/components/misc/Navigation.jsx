@@ -7,7 +7,7 @@ import {logout} from '../../actions/auth'
 
 const NavBar = ({username,logout}) => (
     <Menu secondary pointing >
-        <Menu.Item as={Link} to='/' style={{color:"white", fontSize: "20px"}}>Home</Menu.Item>
+        <Menu.Item as={Link} to='/forum' style={{color:"white", fontSize: "20px"}}>Home</Menu.Item>
         <Menu.Item as={Link} to={`/users/${username}`} style={{color:"white", fontSize: "20px"}}>{username}</Menu.Item>
         <Menu.Menu position='right'>
             <Menu.Item as={Link} to='/newthread' style={{color:"white", fontSize: "20px"}}>New</Menu.Item>

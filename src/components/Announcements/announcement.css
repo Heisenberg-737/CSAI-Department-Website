@@ -162,10 +162,12 @@
   }
 
   .circular > a > h4 {
+    font-size: 0.8rem;
     color: white;
   }
 
   .circular > p {
+    font-size: 0.6rem;
     color: #e6e6e6;
   }
 
@@ -260,10 +262,12 @@ Changed */
   }
 
   .circular > a > h4 {
+    font-size: 0.9rem;
     color: white;
   }
 
   .circular > p {
+    font-size: 0.6rem;
     color: #e6e6e6;
   }
 
@@ -361,6 +365,7 @@ Changed */
   }
 
   .circular > p {
+    font-size: 0.7rem;
     color: #e6e6e6;
   }
 
@@ -449,10 +454,12 @@ Changed */
   }
 
   .circular > a > h4 {
+    font-size: 1.2rem;
     color: white;
   }
 
   .circular > p {
+    font-size: 0.8rem;
     color: #e6e6e6;
   }
 

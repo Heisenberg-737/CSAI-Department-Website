@@ -36,9 +36,7 @@ class NewThreadForm extends Component {
     if (Object.keys(errors).length === 0) {
       this.setState({ loading: true });
       console.log(this.state.data);
-      this.props
-        .submit(this.state.data)
-        .then(() => this.props.toggleEdit())
+      this.props.submit(this.state.data)
         .catch((err) =>
           this.setState({
             errors: err,
@@ -46,7 +44,6 @@ class NewThreadForm extends Component {
           })
         );
     }
-    window.location.href="/forum";
     // console.log("TP", props.history)
     // this.props.history.push('/forum');
     // this.props.toggleEdit();

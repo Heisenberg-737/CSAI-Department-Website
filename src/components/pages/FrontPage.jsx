@@ -25,10 +25,10 @@ const sortOptions =[
         text:'Title',
         value:'Title'
     },
-    {
-        text:'Points',
-        value:'Points'
-    }
+    // {
+    //     text:'Points',
+    //     value:'Points'
+    // }
 
 ]
 const compareTitle = (a,b)=>{
@@ -112,7 +112,7 @@ class FrontPage extends Component{
         
         return(
             <Segment loading={this.state.loading} style = {{background: "#ED4832"}}>
-                <Dropdown defaultValue={'Points'} selection options={sortOptions} onChange={this.sortChange}/>
+                <Dropdown defaultValue={'Date'} selection options={sortOptions} onChange={this.sortChange}/>
                 <Dropdown defaultValue={false} selection options={orderOptionss} onChange={this.orderChange}/>
                 {threadList}
             </Segment>

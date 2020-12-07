@@ -16,9 +16,12 @@ export default {
   },
   thread: {
     createThread: (details) =>
-      axios
-        .post("backend/newthread", { details })
-        .then((res) => res.data.thread),
+      axios.post("backend/newthread", { details })
+        .then((res) => {
+          console.log("The new Thread is as follows : ", res);
+          window.location.href="/forum";
+          return;
+        }),
     editThread: (details) =>
       axios
         .put("/backend/editthread", { details })
@@ -32,11 +35,11 @@ export default {
     createComment: (details) =>
       axios
         .post("/backend/newcomment", { details })
-        .then((res) => res.data.comment),
+        .then(() => window.location.reload()),
     editComment: (details) =>
       axios
         .put("/backend/editcomment", { details })
-        .then((res) => res.data.comment),
+        .then(() => console.log("Hello from api.js, I just added new comment")),
     deleteComment: (commentId) =>
       axios
         .delete(`/backend/deletecomment/${commentId}`)

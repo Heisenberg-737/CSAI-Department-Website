@@ -176,7 +176,7 @@ class ThreadDisplay extends Component {
               {this.state.threadData.author}
             </Link>{" "}
           </span>{" "}
-          <Moment fromNow>{this.state.threadData.created}</Moment>
+          <Moment fromNow>{this.state.threadData.time_created}</Moment>
           <Divider horizontal></Divider>
           <Message className="messagebody">
             {this.state.threadData.body}

@@ -69,7 +69,6 @@ const App =({location,isAuthenticated}) => (
                 <UserRoute location={location} path="/thread/:id" exact component={ThreadPage} />
                 <UserRoute location={location} path="/users/:username" exact component={HistoryPage} />
             </div>
-            
         </div> 
 );
 
