@@ -34,10 +34,10 @@ const sortOptions = [
     text: "Date",
     value: "Date",
   },
-  {
-    text: "Points",
-    value: "Points",
-  },
+  // {
+  //   text: "Points",
+  //   value: "Points",
+  // },
 ];
 const compareKarma = (a, b) => {
   return a.karma - b.karma;
@@ -53,6 +53,7 @@ class ThreadPage extends Component {
       sortby: "Points",
       ascending: false,
       //   editMode: false,
+      // trying to change
     };
     this.submit = this.submit.bind(this);
     // this.toggleEdit = this.toggleEdit.bind(this);
@@ -156,7 +157,7 @@ class ThreadPage extends Component {
         />
         <Segment loading={this.state.loading}>
           <Dropdown
-            defaultValue="Points"
+            defaultValue="Date"
             selection
             options={sortOptions}
             onChange={this.sortChange}

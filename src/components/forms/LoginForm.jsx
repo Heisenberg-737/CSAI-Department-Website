@@ -35,7 +35,6 @@ class LoginForm extends Component{
             errors:errors
         })
         if(Object.keys(errors).length === 0){
-            // this.setState({loading:true});
             this.props.submit(this.state.data)
                 .catch(err => {
                         console.log("Error : ", err.response)

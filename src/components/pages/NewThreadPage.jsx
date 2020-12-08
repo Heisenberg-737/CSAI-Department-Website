@@ -15,7 +15,7 @@ class NewThreadPage extends Component{
     submit = (data) =>{
         return this.props.createThread(data)
             .then(() => {
-                window.location.href="/forum";
+                // window.location.href="/forum";
                 // this.props.history.push("/forum")
         });
     }

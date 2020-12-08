@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { Segment, Card, Comment, Tab, List } from "semantic-ui-react";
 import Moment from "react-moment";
@@ -29,6 +27,8 @@ class HistoryPage extends Component {
             return d.type === "Thread" ? d : null;
           }),
         ]);
+
+
         this.setState({
           threads: [
             res.data.filter((d) => {
@@ -43,11 +43,9 @@ class HistoryPage extends Component {
           loading: false,
         });
       });
-    console.log("YOO after", this.state.comments);
   }
 
   render() {
-    console.log("Thak gya hoon", this.state.comments);
     let commentTab = this.state.comments.map((comment) => {
       return (
           comment.map((c)=>{

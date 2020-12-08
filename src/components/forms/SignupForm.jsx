@@ -50,7 +50,6 @@ class SignupForm extends Component{
     }
 
     render(){
-        // console.log("ERROR KI MKC", this.state.errors);
         return(
             <Form onSubmit={this.onSubmit} loading={this.state.loading} style = {{marginLeft: "55vw", width:"20vw"}}>
                 {this.state.errors.global && (

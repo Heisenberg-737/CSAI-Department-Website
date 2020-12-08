@@ -7,11 +7,13 @@ import json
 
 def scrape():
     URL = 'https://www.imsnsit.org/imsnsit/notifications.php'
-    page = requests.get(URL)
+    page = requests.get(URL)  # sends HTTP Response
+    # print(page.content)
 
-    soup = BeautifulSoup(page.content, 'html.parser')
+    soup = BeautifulSoup(page.content, 'html.parser')  # sends HTML data
     # pprint(soup)
 
+    # finds td tags with given class
     results = soup.find_all('td', class_='list-data-focus')
 
     circulars = []
@@ -28,18 +30,13 @@ def scrape():
             lis.append(b_tag.text)
             lis.append('Published By: CONCERNED DEPARTMENT')
         circulars.append(lis)
-    json_object = json.dumps(circulars)
+    json_object = json.dumps(circulars)  # converts list to a json object
 
-    # Writing to sample.json
+    # Writing to json file
     with open("announcements.json", "w") as outfile:
         outfile.write(json_object)
-
-    # print('done')
-
-    # for key in circulars.keys():
-    #print(key, ' : ', circulars[key])
 
 
 while True:
     scrape()
-    time.sleep(10)
+    time.sleep(300)
